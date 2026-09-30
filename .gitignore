@@ -1,3 +1,7 @@
 build-*/
 shaders/*.spv
 imgui.ini
+log.txt
+reports/*_шаблон.docx
+reports/~$*.docx
+AGENTS.md

@@ -64,3 +64,30 @@ because relative paths are used.
 `CMakeLists.txt` has a build recipe for compiling shader files
 along with an application. Look for a comment in this file to see
 how to compile your shaders.
+
+### Truncated tetrahedron and projection
+
+The application displays a regular truncated tetrahedron: 12 vertices, 18 edges,
+four equilateral triangles, and four regular hexagons. The original tetrahedron
+has vertices `(1,1,1)`, `(1,-1,-1)`, `(-1,1,-1)`, and `(-1,-1,1)`.
+Each directed edge from `A` to `B` produces a vertex `(2*A + B)/3`;
+all new edges have length `sqrt(8)/3`.
+
+Rotate with the X/Y/Z sliders or drag the view. Scroll to zoom. Toggle perspective,
+wireframe (including hidden edges), or automatic rotation. Orange faces are
+triangles; blue faces are hexagons. Filled mode hides back faces and shades the
+visible faces.
+
+Geometry and rotations are computed on the CPU. For a camera at `(0,0,d)`, with
+`d=6`, perspective projection onto `z=0` is `x'=d*x/(d-z)`, `y'=d*y/(d-z)`.
+Orthographic projection is `x'=x`, `y'=y`. Screen coordinates apply a uniform
+scale, shift the origin to the canvas center, and invert Y. ImGui submits the
+resulting 2D polygons through its Vulkan renderer.
+
+The standalone geometry test checks face regularity, planarity, winding, edge
+lengths, closed topology, and rotation:
+
+```bash
+c++ -std=c++20 -Wall -Wextra -Isource tests/tetrahedron_test.cpp source/tetrahedron.cpp -o /tmp/tetrahedron-test
+/tmp/tetrahedron-test
+```
