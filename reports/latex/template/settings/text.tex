@@ -1,0 +1,16 @@
+% bp — пункты Word/PDF (1/72 дюйма); pt в TeX немного меньше.
+% Межстрочный шаг 24,15 bp соответствует TNR 14 пт с интервалом 1,5 в образце.
+\newcommand{\ReportBodyFont}{\fontsize{14bp}{24.15bp}\selectfont}
+\AtBeginDocument{\ReportBodyFont\spaceskip=3.5bp plus 3.5bp minus 1bp}
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+\frenchspacing
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\tolerance=9999
+\emergencystretch=3em
+% В исправленном Word-образце автоматические переносы слов выключены.
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\raggedbottom

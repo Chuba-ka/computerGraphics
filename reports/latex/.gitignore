@@ -1,0 +1,11 @@
+/build/
+/tools/tectonic
+/resources/fonts/*.ttf
+/resources/fonts/*.TTF
+*.aux
+*.log
+*.out
+*.xdv
+*.synctex.gz
+*.fls
+*.fdb_latexmk

@@ -1,0 +1,22 @@
+% Общие настройки. Основа — исправленные пользователем DOCX и PDF.
+\usepackage{iftex}
+\ifPDFTeX
+  \PackageError{report}{Use XeLaTeX, LuaLaTeX or Tectonic}{Run build.sh instead of pdflatex.}
+\fi
+
+\input{template/settings/fonts}
+\usepackage[english,main=russian]{babel}
+\input{template/settings/layout}
+\usepackage{indentfirst}
+\usepackage[nostruts]{titlesec}
+\usepackage{fancyhdr}
+\usepackage[unicode,hidelinks]{hyperref}
+\input{template/settings/math}
+\input{template/settings/figures}
+\IfFontExistsTF{Courier New}{\setmonofont{Courier New}}{\setmonofont{Liberation Mono}}
+\urlstyle{tt}
+\tracinglostchars=3
+
+\input{template/settings/text}
+\input{template/settings/headings}
+\input{template/settings/pages}

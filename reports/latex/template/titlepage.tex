@@ -1,0 +1,39 @@
+% Отступы блоков перенесены из исправленного титульного листа.
+\begin{titlepage}
+\thispagestyle{empty}
+\setlength{\parindent}{0pt}
+\fontsize{14bp}{18.48bp}\selectfont
+\centering
+{\bfseries\ReportUniversity\par
+\ReportUniversityStatus\par}
+\vspace{18bp}
+\ReportInstitute\par
+\ReportDepartment\par
+
+\vspace{120bp}
+{\bfseries ЛАБОРАТОРНАЯ РАБОТА № \ReportNumber\par}
+\vspace{12bp}
+по курсу «\ReportCourse»\par
+\vspace{6bp}
+\ReportTopic\par
+\vspace{6bp}
+\ReportVariant\par
+
+\vspace{120bp}
+% Общий левый край реквизитов — 95 мм от левой границы области текста.
+\hspace*{95mm}\begin{minipage}[t]{\dimexpr\textwidth-95mm\relax}
+\raggedright
+Выполнил: \ReportAuthor\par
+\vspace{6bp}
+Группа: \ReportGroup\par
+\vspace{6bp}
+Преподаватель: \ReportTeacher\par
+\end{minipage}\par
+
+\vspace{150bp}
+\ReportCity, \ReportYear\par
+\end{titlepage}
+% Титульный лист входит в общую нумерацию, но его номер не печатается.
+\setcounter{page}{2}
+\hypersetup{pdftitle={Лабораторная работа № \ReportNumber. \ReportTopic},
+  pdfauthor={\ReportAuthor}}

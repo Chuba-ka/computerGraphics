@@ -1,0 +1,6 @@
+% Размер заголовков совпадает с основным текстом, без точки после номера.
+\titleformat{\section}{\ReportBodyFont\bfseries}{\thesection}{0.5em}{\MakeUppercase}
+\titleformat{\subsection}{\ReportBodyFont\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing{\section}{1.25cm}{18bp}{12bp}
+\titlespacing{\subsection}{1.25cm}{12bp}{6bp}
+% Разделы идут подряд, как в исправленном PDF. \input не создаёт разрыв страницы.

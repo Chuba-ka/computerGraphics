@@ -1,0 +1,24 @@
+\usepackage{fontspec}
+% Можно положить собственные Times New Roman в resources/fonts/ (не входят в Git).
+\IfFileExists{resources/fonts/times.ttf}{%
+  \IfFileExists{resources/fonts/timesi.ttf}{%
+    \setmainfont{times.ttf}[Path=resources/fonts/,BoldFont=timesbd.ttf,
+      ItalicFont=timesi.ttf,BoldItalicFont=timesbi.ttf]
+  }{%
+    % Текущий отчёт использует только обычное и полужирное начертания.
+    \setmainfont{times.ttf}[Path=resources/fonts/,BoldFont=timesbd.ttf,
+      ItalicFont=times.ttf,BoldItalicFont=timesbd.ttf]
+  }
+}{%
+  \IfFontExistsTF{Times New Roman}{%
+    \setmainfont{Times New Roman}
+  }{%
+    \IfFontExistsTF{Liberation Serif}{%
+      \setmainfont{Liberation Serif}
+      \PackageWarningNoLine{report}{Times New Roman unavailable; using Liberation Serif}
+    }{%
+      \PackageError{report}{Times New Roman or Liberation Serif is required}
+        {Install a Cyrillic font or provide the four Times New Roman files in resources/fonts/.}
+    }
+  }
+}
